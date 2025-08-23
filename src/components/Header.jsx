@@ -53,12 +53,12 @@ const Header = () => {
 
           {/* Logo */}
           <div className="flex items-center">
-            <img
+            <a href="/"><img
               className="w-16 sm:w-20 mr-2"
               src="https://i.postimg.cc/0jtm8yvk/reallogo.png"
               alt="Topmind Care Logo"
-            />
-            <a className="text-xl sm:text-2xl font-semibold">Topmind Care</a>
+            /></a>
+            <a href="/" className="text-xl sm:text-2xl font-semibold">Topmind Care</a>
           </div>
         </div>
 
