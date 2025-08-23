@@ -1,2 +1,18 @@
 @import "tailwindcss";
 @plugin "daisyui";
+
+.primary {
+  color:#7C3AED;
+}
+
+.primary-bg{
+  background-color: #7C3AED;
+}
+
+.accent {
+  color: #21C55D;
+}
+
+.accent-bg {
+  background: #21C55D;
+}
