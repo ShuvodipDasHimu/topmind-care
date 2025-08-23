@@ -1,105 +1,75 @@
-import React from 'react';
+import React from "react";
 
 const Programs = () => {
+  const programs = [
+    {
+      title: "Little Explorers (4-6)",
+      desc: "Three to five-minute stories with animal friends that teach belly-breathing, noticing sounds, and gentle stretching.",
+      img: "https://i.postimg.cc/V5yXdLvX/little-explorers.webp",
+      features: ["🐯 Cozy Corner", "🎵 Calm Music", "🎖️ Sticker Badges"],
+      reverse: false,
+    },
+    {
+      title: "Brave Thinkers (7-10)",
+      desc: "Mindset stories, focus timers, and kindness practices that build confidence and classroom readiness.",
+      img: "https://i.postimg.cc/tJnhqVqX/brave-thinkers.webp",
+      features: ["⏱️ Focus Timer", "📝 Gratitude Notes", "⭐ Goal Cards"],
+      reverse: true,
+    },
+    {
+      title: "Calm & Curious (11-14)",
+      desc: "Longer meditations, reframing thoughts, and sleep stories for deeper rest and emotional balance.",
+      img: "https://i.postimg.cc/QtyQZqr4/hero-kids.webp",
+      features: ["🧭 Mindset Minis", "🌙 Sleep Stories", "🎯 Goal Cards"],
+      reverse: false,
+    },
+  ];
+
   return (
-    <div className="space-y-12">
-      {/* Section 1 */}
-      <div className="flex flex-col md:flex-row items-center gap-6">
-        <div className="flex flex-col gap-2 text-center md:text-left">
-          <h1 className="text-3xl font-bold">Programs for Every Age</h1>
-          <p className="opacity-70">
-            Pick a track or mix and match. Each program grows with your child.
-          </p>
-          <img
-            className="rounded-lg w-full md:w-auto"
-            src="https://i.postimg.cc/V5yXdLvX/little-explorers.webp"
-            alt=""
-          />
-        </div>
-        <div className="flex flex-col gap-4 text-center md:text-left">
-          <div>
-            <h1 className="font-extrabold text-2xl">Little Explorers (4-6)</h1>
-            <p className="font-medium">
-              Three to five-minute stories with animal friends that teach
-              belly-breathing, <br className="hidden md:block" /> noticing
-              sounds, and gentle stretching.
-            </p>
-          </div>
-          <div className="flex flex-col sm:flex-row flex-wrap justify-center md:justify-start gap-4">
-            <span className="font-bold bg-gray-200 p-4 rounded-2xl border-gray-100 w-full sm:w-56 text-center">
-              🐯 Cozy Corner
-            </span>
-            <span className="font-bold bg-gray-200 p-4 rounded-2xl border-gray-100 w-full sm:w-56 text-center">
-              🎵 Calm Music
-            </span>
-            <span className="font-bold bg-gray-200 p-4 rounded-2xl border-gray-100 w-full sm:w-56 text-center">
-              🎖️ Sticker Badges
-            </span>
-          </div>
-        </div>
-      </div>
+    <div className="space-y-16">
+      {programs.map((program, i) => (
+        <div
+          key={i}
+          className={`flex flex-col md:flex-row items-center gap-8 animate-slideUp`}
+          style={{ animationDelay: `${i * 250}ms` }}
+        >
+          {/* Image (conditional placement for reverse layout) */}
+          {!program.reverse && (
+            <img
+              className="rounded-lg w-full md:w-auto animate-fadeIn"
+              src={program.img}
+              alt={program.title}
+            />
+          )}
 
-      {/* Section 2 */}
-      <div className="flex flex-col md:flex-row items-center gap-6">
-        <div className="flex flex-col gap-4 text-center md:text-left">
-          <div>
-            <h1 className="font-extrabold text-2xl">Brave Thinkers (7-10)</h1>
-            <p className="font-medium">
-              Mindset stories, focus timers, and kindness practices that build
-              confidence and classroom readiness
-            </p>
-          </div>
-          <div className="flex flex-col sm:flex-row flex-wrap justify-center md:justify-start gap-4">
-            <span className="font-bold bg-gray-200 p-4 rounded-2xl border-gray-100 w-full sm:w-56 text-center">
-              ⏱️ Focus Timer
-            </span>
-            <span className="font-bold bg-gray-200 p-4 rounded-2xl border-gray-100 w-full sm:w-56 text-center">
-              📝 Gratitude Notes
-            </span>
-            <span className="font-bold bg-gray-200 p-4 rounded-2xl border-gray-100 w-full sm:w-56 text-center">
-              ⭐ Goal Cards
-            </span>
-          </div>
-        </div>
-        <div className="flex flex-col gap-2">
-          <img
-            className="rounded-lg w-full md:w-auto"
-            src="https://i.postimg.cc/tJnhqVqX/brave-thinkers.webp"
-            alt=""
-          />
-        </div>
-      </div>
+          {/* Text Section */}
+          <div className="flex flex-col gap-4 text-center md:text-left">
+            <h1 className="font-extrabold text-2xl">{program.title}</h1>
+            <p className="font-medium opacity-80">{program.desc}</p>
 
-      {/* Section 3 */}
-      <div className="flex flex-col md:flex-row items-center gap-6">
-        <div className="flex flex-col gap-2">
-          <img
-            className="rounded-lg w-full md:w-auto"
-            src="https://i.postimg.cc/QtyQZqr4/hero-kids.webp"
-            alt=""
-          />
-        </div>
-        <div className="flex flex-col gap-4 text-center md:text-left">
-          <div>
-            <h1 className="font-extrabold text-2xl">Calm & Curious (11-14)</h1>
-            <p className="font-medium">
-              Longer meditations, reframing thoughts, and sleep stories for
-              deeper rest and emotional balance.
-            </p>
+            {/* Features */}
+            <div className="flex flex-col sm:flex-row flex-wrap justify-center md:justify-start gap-4 mt-2">
+              {program.features.map((feature, idx) => (
+                <span
+                  key={idx}
+                  className="font-bold bg-gray-200 p-4 rounded-2xl border-gray-100 w-full sm:w-56 text-center transition transform hover:-translate-y-1 hover:shadow-md"
+                >
+                  {feature}
+                </span>
+              ))}
+            </div>
           </div>
-          <div className="flex flex-col sm:flex-row flex-wrap justify-center md:justify-start gap-4">
-            <span className="font-bold bg-gray-200 p-4 rounded-2xl border-gray-100 w-full sm:w-56 text-center">
-              🧭 Mindset Minis
-            </span>
-            <span className="font-bold bg-gray-200 p-4 rounded-2xl border-gray-100 w-full sm:w-56 text-center">
-              🌙 Sleep Stories
-            </span>
-            <span className="font-bold bg-gray-200 p-4 rounded-2xl border-gray-100 w-full sm:w-56 text-center">
-              🎯 Goal Cards
-            </span>
-          </div>
+
+          {/* Image (reverse layout) */}
+          {program.reverse && (
+            <img
+              className="rounded-lg w-full md:w-auto animate-fadeIn"
+              src={program.img}
+              alt={program.title}
+            />
+          )}
         </div>
-      </div>
+      ))}
     </div>
   );
 };
