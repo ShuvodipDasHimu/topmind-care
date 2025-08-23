@@ -57,22 +57,21 @@ const plans = [
 
 const Pricing = () => {
   return (
-    <div className="my-16 px-6 max-w-6xl mx-auto">
+    <div className="my-16 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
       {/* === Comparison Table === */}
       <h2 className="text-2xl md:text-3xl font-bold mb-6">
         Why Choose Mindery Kids Over Others?
       </h2>
 
-      <div className="overflow-x-auto">
+      {/* Desktop Table */}
+      <div className="hidden md:block overflow-x-auto">
         <div className="min-w-[760px] rounded-xl border border-gray-200 bg-white shadow-sm overflow-hidden animate-fadeIn">
-          {/* Header */}
           <div className="grid [grid-template-columns:40%_30%_30%] bg-purple-100 divide-x divide-gray-200">
             <div className="p-4 font-semibold text-center">Feature</div>
             <div className="p-4 font-semibold text-center">Mindery Kids</div>
             <div className="p-4 font-semibold text-center">Other Apps</div>
           </div>
 
-          {/* Rows */}
           <div className="divide-y divide-gray-200">
             {comparisonData.map((row, i) => (
               <div
@@ -104,45 +103,85 @@ const Pricing = () => {
         </div>
       </div>
 
+      {/* Mobile Table as Stacked Cards */}
+      <div className="md:hidden flex flex-col gap-4">
+        {comparisonData.map((row, i) => (
+          <div
+            key={i}
+            className="bg-white border border-gray-200 rounded-xl p-4 shadow-sm animate-fadeIn"
+            style={{ animationDelay: `${i * 0.1}s` }}
+          >
+            <div className="font-semibold text-gray-800 mb-2">{row.feature}</div>
+            <div className="flex flex-col sm:flex-row gap-2 sm:gap-4">
+              {[row.mindery, row.others].map((col, j) => (
+                <div
+                  key={j}
+                  className="flex items-center gap-2 bg-gray-50 p-2 rounded-lg flex-1"
+                >
+                  <span
+                    className={`inline-flex h-5 w-5 items-center justify-center rounded-[4px] text-white text-xs ${
+                      col.ok ? "bg-green-500" : "bg-red-500"
+                    }`}
+                  >
+                    {col.ok ? "✓" : "✗"}
+                  </span>
+                  <span className="text-gray-800 text-sm">{col.text}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+
       {/* === Pricing Plans === */}
-      <div className="mt-16 bg-purple-50 rounded-xl p-10 animate-fadeIn">
-        <h2 className="text-2xl md:text-3xl font-bold text-center">
-          Choose Your Plan
-        </h2>
-        <p className="text-center text-gray-600 mt-2 mb-10">
-          Start free, cancel anytime. No hidden charges.
+      <div className="mt-16 bg-purple-50 rounded-xl p-6 sm:p-10 animate-fadeIn">
+  <h2 className="text-2xl md:text-3xl font-bold text-center">
+    Choose Your Plan
+  </h2>
+  <p className="text-center text-gray-600 mt-2 mb-10">
+    Start free, cancel anytime. No hidden charges.
+  </p>
+
+  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+    {plans.map((plan, i) => (
+      <div
+        key={i}
+        className="bg-white border border-gray-200 rounded-2xl p-6 sm:p-8 shadow-md flex flex-col
+                   transition-transform duration-300 hover:scale-105 hover:shadow-lg animate-fadeIn"
+        style={{ animationDelay: `${i * 0.15}s` }}
+      >
+        {/* Plan Header */}
+        <div className="mb-4 text-center sm:text-left">
+          <h3 className="text-xl sm:text-2xl font-semibold mb-1 text-purple-700">{plan.name}</h3>
+          <p className="text-gray-600 sm:text-sm">{plan.desc}</p>
+        </div>
+
+        {/* Price */}
+        <p className="text-3xl sm:text-4xl font-bold text-purple-600 mb-6 text-center sm:text-left">
+          {plan.price}
         </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {plans.map((plan, i) => (
-            <div
-              key={i}
-              className="bg-white border border-gray-200 rounded-2xl p-8 shadow-sm flex flex-col 
-                         transition-transform duration-300 hover:scale-105 hover:shadow-md animate-fadeIn"
-              style={{ animationDelay: `${i * 0.15}s` }}
-            >
-              <h3 className="text-xl font-semibold mb-1">{plan.name}</h3>
-              <p className="text-gray-600 mb-4">{plan.desc}</p>
-              <p className="text-3xl font-bold text-purple-600 mb-6">
-                {plan.price}
-              </p>
-              <ul className="space-y-3 flex-grow">
-                {plan.features.map((f, j) => (
-                  <li key={j} className="flex items-center gap-2 text-gray-800">
-                    <span className="inline-flex h-5 w-5 items-center justify-center rounded-[4px] bg-green-500 text-white text-xs">
-                      ✓
-                    </span>
-                    {f}
-                  </li>
-                ))}
-              </ul>
-              <button className="mt-6 bg-purple-600 hover:bg-purple-700 text-white font-semibold py-2.5 px-4 rounded-lg transition-colors duration-300">
-                {plan.button}
-              </button>
-            </div>
+        {/* Feature List */}
+        <ul className="space-y-3 flex-grow">
+          {plan.features.map((f, j) => (
+            <li key={j} className="flex items-center gap-3 text-gray-800">
+              <span className="inline-flex h-6 w-6 sm:h-5 sm:w-5 items-center justify-center rounded-full bg-green-500 text-white font-bold text-xs sm:text-[10px]">
+                ✓
+              </span>
+              <span className="text-sm sm:text-base">{f}</span>
+            </li>
           ))}
-        </div>
+        </ul>
+
+        {/* CTA Button */}
+        <button className="mt-6 bg-purple-600 hover:bg-purple-700 text-white font-semibold py-3 px-4 rounded-xl transition-colors duration-300 w-full">
+          {plan.button}
+        </button>
       </div>
+    ))}
+  </div>
+</div>
+
     </div>
   );
 };

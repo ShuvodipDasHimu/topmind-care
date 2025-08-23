@@ -22,14 +22,14 @@ const faqs = [
 
 const FAQ = () => {
   return (
-    <div className="w-full py-12 px-4">
+    <div className="w-full py-12 px-4 sm:px-6 md:px-12">
       {/* FAQ Title */}
-      <h2 className="text-2xl md:text-3xl font-bold mb-6 animate-fadeIn">
+      <h2 className="text-2xl sm:text-3xl md:text-3xl font-bold mb-6 animate-fadeIn text-center sm:text-left">
         Frequently Asked Questions
       </h2>
 
       {/* FAQ Accordion */}
-      <div className="w-full rounded-lg border border-gray-200 animate-fadeIn">
+      <div className="w-full rounded-lg border border-gray-200 animate-fadeIn max-w-4xl mx-auto sm:mx-0">
         {faqs.map((item, i) => (
           <div
             key={i}
@@ -40,29 +40,33 @@ const FAQ = () => {
               name="faq-accordion"
               defaultChecked={item.defaultOpen}
             />
-            <div className="collapse-title text-lg font-medium text-gray-800">
+            <div className="collapse-title text-lg sm:text-base md:text-lg font-medium text-gray-800">
               {item.q}
             </div>
             <div className="collapse-content">
-              <p className="text-gray-600 text-sm mt-2">{item.a}</p>
+              <p className="text-gray-600 text-sm sm:text-sm md:text-sm mt-2">
+                {item.a}
+              </p>
             </div>
           </div>
         ))}
       </div>
 
       {/* CTA Section */}
-      <div className="w-full mt-12 rounded-2xl shadow-sm bg-gradient-to-r from-white via-blue-50 to-purple-50 p-8 animate-fadeIn">
-        <h3 className="text-xl md:text-2xl font-bold mb-3">
-          Start Your Child’s Mindfulness Journey
-        </h3>
-        <p className="text-gray-600 mb-6">
-          Try it free. Build calm, focus, and kindness—one small practice a day.
-        </p>
-        <div className="flex gap-4">
-          <button className="px-6 py-2 rounded-lg bg-purple-600 text-white font-medium hover:bg-purple-700 transition">
+      <div className="w-full mt-12 rounded-2xl shadow-sm bg-gradient-to-r from-white via-blue-50 to-purple-50 p-6 sm:p-8 md:p-10 max-w-4xl mx-auto flex flex-col sm:flex-row items-center sm:items-start gap-4 animate-fadeIn">
+        <div className="flex-1 text-center sm:text-left">
+          <h3 className="text-xl sm:text-2xl md:text-2xl font-bold mb-3">
+            Start Your Child’s Mindfulness Journey
+          </h3>
+          <p className="text-gray-600 mb-6 text-sm sm:text-base">
+            Try it free. Build calm, focus, and kindness—one small practice a day.
+          </p>
+        </div>
+        <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
+          <button className="px-6 py-2 rounded-lg bg-purple-600 text-white font-medium hover:bg-purple-700 transition w-full sm:w-auto">
             Create Account
           </button>
-          <button className="px-6 py-2 rounded-lg bg-green-500 text-white font-medium hover:bg-green-600 transition">
+          <button className="px-6 py-2 rounded-lg bg-green-500 text-white font-medium hover:bg-green-600 transition w-full sm:w-auto">
             Download App
           </button>
         </div>
