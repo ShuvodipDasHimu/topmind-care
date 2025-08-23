@@ -20,13 +20,19 @@ const faqs = [
   },
 ];
 
-const FAQ = () => {
+const FAQ = ({ id }) => {
   return (
-    <div className="w-full py-12 px-4 sm:px-6 md:px-12">
-      {/* FAQ Title */}
-      <h2 className="text-2xl sm:text-3xl md:text-3xl font-bold mb-6 animate-fadeIn text-center md:text-left">
-        Frequently Asked Questions
-      </h2>
+    // The id is applied to the main container for in-page navigation
+    <div id={id} className="py-16 lg:py-24 px-4 container mx-auto">
+      {/* Section Title */}
+      <div className="text-center mb-12">
+        <h2 className="text-4xl lg:text-5xl font-extrabold text-gray-800 mb-4 animate-fadeIn">
+          Frequently Asked Questions
+        </h2>
+        <p className="max-w-prose mx-auto text-lg text-gray-600 animate-fadeIn">
+          Have more questions? Here are the most common ones we receive.
+        </p>
+      </div>
 
       {/* FAQ Accordion */}
       <div className="w-full rounded-lg border border-gray-200 animate-fadeIn max-w-5xl mx-auto">
@@ -40,7 +46,7 @@ const FAQ = () => {
               name="faq-accordion"
               defaultChecked={item.defaultOpen}
             />
-            <div className="collapse-title text-lg md:text-lg font-medium text-gray-800 px-4 py-3 md:px-6 md:py-4">
+            <div className="collapse-title text-lg md:text-lg font-bold text-gray-800 px-4 py-3 md:px-6 md:py-4">
               {item.q}
             </div>
             <div className="collapse-content px-4 py-2 md:px-6 md:py-3">
@@ -51,7 +57,7 @@ const FAQ = () => {
       </div>
 
       {/* CTA Section */}
-      <div className="w-full mt-12 rounded-2xl shadow-sm bg-gradient-to-r from-white via-blue-50 to-purple-50 p-6 sm:p-8 md:p-10 max-w-5xl mx-auto flex flex-col md:flex-row items-center md:items-start gap-4 animate-fadeIn">
+      <div className="w-full mt-12 rounded-2xl shadow-sm bg-gradient-to-r from-purple-50 via-green-50 to-purple-50 p-6 sm:p-8 md:p-10 max-w-5xl mx-auto flex flex-col md:flex-row items-center md:items-start gap-4 animate-fadeIn">
         <div className="flex-1 text-center md:text-left">
           <h3 className="text-xl sm:text-2xl md:text-2xl font-bold mb-3">
             Start Your Child’s Mindfulness Journey
@@ -61,12 +67,18 @@ const FAQ = () => {
           </p>
         </div>
         <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
-          <button className="px-6 py-2 rounded-lg bg-purple-600 text-white font-medium hover:bg-purple-700 transition w-full sm:w-auto">
+          <a
+            href="#"
+            className="btn btn-primary text-white primary-bg font-semibold shadow-md py-2 px-6 rounded-lg hover:shadow-lg transition"
+          >
             Create Account
-          </button>
-          <button className="px-6 py-2 rounded-lg bg-green-500 text-white font-medium hover:bg-green-600 transition w-full sm:w-auto">
+          </a>
+          <a
+            href="#"
+            className="btn btn-accent text-white accent-bg font-semibold shadow-md py-2 px-6 rounded-lg hover:shadow-lg transition"
+          >
             Download App
-          </button>
+          </a>
         </div>
       </div>
     </div>

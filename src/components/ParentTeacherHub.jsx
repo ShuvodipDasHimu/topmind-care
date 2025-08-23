@@ -26,9 +26,11 @@ const testimonials = [
   },
 ];
 
-const ParentTeacherHub = () => {
+// The component is now configured to accept an 'id' prop
+const ParentTeacherHub = ({ id }) => {
   return (
-    <div className="my-16">
+    // The id is applied to the main container div
+    <div id={id} className="py-16 lg:py-24 px-4 container mx-auto">
       {/* === Parent & Teacher Hub Section === */}
       <div className="rounded-2xl p-8 bg-gradient-to-r from-purple-50 to-blue-50 shadow-sm animate-fadeIn">
         <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">
