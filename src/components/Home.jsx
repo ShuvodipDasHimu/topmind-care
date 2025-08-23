@@ -22,9 +22,6 @@ const Home = () => {
           <Hero id="hero" />
           <WhyMindery id="whymindery" />
           <Programs id="programs" />
-          {/* This is the key change: 
-            Wrap the BuiltForKids component in a div and give it an id.
-          */}
           <div id="features">
             <BuiltForKids />
           </div>
