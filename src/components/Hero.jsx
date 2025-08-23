@@ -5,12 +5,9 @@ const Hero = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Collect form data
     const formData = new FormData(e.target);
     const data = Object.fromEntries(formData.entries());
     console.log("Form Submitted:", data);
-
-    // Close popup after submission
     setIsOpen(false);
   };
 
@@ -18,21 +15,20 @@ const Hero = () => {
     <div className="mt-12 flex flex-col lg:flex-row justify-center items-center lg:items-start">
       {/* Left Content */}
       <div className="mt-8 flex flex-col gap-6 w-[90%] sm:w-[80%] md:w-[70%] lg:w-1/2 self-center text-center lg:text-left animate-fadeIn">
-        {/* Headline Section */}
         <div>
           <span className="primary bg-purple-200 font-bold px-2 py-1 rounded-lg inline-block animate-bounce-slow">
             🌈 Calm Minds, Happy Hearts
           </span>
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-semibold mt-4 mb-3 leading-snug">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-semibold mt-4 mb-3 leading-snug animate-fadeIn">
             Mindfulness & <br className="hidden lg:block" /> Meditation for Kids (4-14)
           </h1>
-          <p className="opacity-80 font-medium text-sm sm:text-base">
+          <p className="opacity-80 font-medium text-sm sm:text-base animate-fadeIn delay-100">
             Fun, story-based meditation that build focus, kindness, and confidence. <br className="hidden sm:block" />
             Safe, ad-free, and crafted with child-development experts.
           </p>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row justify-center lg:justify-start gap-3 mt-6">
+          <div className="flex flex-col sm:flex-row justify-center lg:justify-start gap-3 mt-6 animate-slideUp">
             <button
               onClick={() => setIsOpen(true)}
               className="btn primary-bg text-white rounded-xl px-5 py-3 transform transition duration-300 hover:scale-105 hover:shadow-lg"
@@ -49,7 +45,7 @@ const Hero = () => {
         </div>
 
         {/* Features */}
-        <div className="flex flex-wrap justify-center lg:justify-start gap-4 animate-slideUp">
+        <div className="flex flex-wrap justify-center lg:justify-start gap-4 animate-slideUp delay-200">
           {[
             { icon: "🧠", label: "Improves", value: "Focus" },
             { icon: "😌", label: "Reduces", value: "Stress" },
@@ -58,7 +54,7 @@ const Hero = () => {
           ].map((item, i) => (
             <div
               key={i}
-              className="flex items-center gap-2 px-4 py-3 shadow-lg w-36 sm:w-40 rounded-xl transition transform hover:scale-105"
+              className="flex items-center gap-2 px-4 py-3 shadow-lg w-36 sm:w-40 rounded-xl transition transform hover:scale-105 animate-fadeIn delay-[${i * 100}ms]"
             >
               <span>{item.icon}</span>
               <div>
@@ -73,7 +69,7 @@ const Hero = () => {
       {/* Right Image Section */}
       <div className="relative mt-10 lg:mt-0 animate-fadeIn delay-200">
         <div className="bg-[#E4E4E4] w-64 h-64 sm:w-96 sm:h-96 lg:w-[650px] lg:h-[650px] rounded-md"></div>
-        <div className="py-4 px-3 sm:py-6 sm:px-4 shadow-md w-56 sm:w-64 md:w-72 rounded-xl absolute bg-white bottom-10 sm:bottom-16 lg:bottom-20 transform -rotate-3 sm:-rotate-6 -left-4 sm:-left-8 lg:-left-10 animate-slideUp delay-300">
+        <div className="py-4 px-3 sm:py-6 sm:px-4 shadow-md w-56 sm:w-64 md:w-72 rounded-xl absolute bg-white bottom-10 sm:bottom-16 lg:bottom-20 transform -rotate-3 sm:-rotate-6 lg:-rotate-3 -left-4 sm:-left-8 lg:-left-10 animate-slideUp delay-300">
           <span className="font-bold block mb-2">Today's Journey</span>
           <ul className="list-disc ml-6 text-sm sm:text-base">
             <li>🌬️ Dragon Breath (3 min)</li>
@@ -85,8 +81,8 @@ const Hero = () => {
 
       {/* Modal Form */}
       {isOpen && (
-        <div className="fixed inset-0 flex justify-center items-center bg-black/50 z-50">
-          <div className="bg-white rounded-xl p-6 w-96 shadow-lg relative">
+        <div className="fixed inset-0 flex justify-center items-center bg-black/50 z-50 animate-fadeIn">
+          <div className="bg-white rounded-xl p-6 w-96 shadow-lg relative animate-zoomIn">
             {/* Close Button */}
             <button
               onClick={() => setIsOpen(false)}
