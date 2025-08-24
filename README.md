@@ -1,12 +1,19 @@
-# React + Vite
+🧘 Topmind Care - Mindfulness for Kids
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is the front-end repository for Topmind Care, a modern, single-page application (SPA) promoting mindfulness and meditation programs tailored for children aged 4-14 and their parents/teachers. The design is clean, colorful, and emphasizes ease of navigation with smooth in-page scrolling.
 
-Currently, two official plugins are available:
+✨ Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+    Responsive Header: Navigation bar adapts for mobile (dropdown menu) and desktop.
 
-## Expanding the ESLint configuration
+    Hero Section: Engaging headline and call-to-action buttons.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+    Program Sections: Detailed, age-specific meditation programs (Little Explorers, Brave Thinkers, Calm & Curious).
+
+    Features/Built for Kids: Highlights key app features like Ad-Free, Rewards, and Sleep Mode in a clean grid layout.
+
+    Parent & Teacher Hub: Dedicated section with resources and testimonials from families and educators.
+
+    FAQ Section: Interactive accordion for frequently asked questions.
+
+    Single-Page Navigation: All main links (Why, Programs, Features, For Parents, FAQ) utilize smooth scrolling to relevant sections without page reloads.
